@@ -16,18 +16,19 @@ int port=ACE_DEFAULT_SERVER_PORT;
 
 printf("server starting on port %d\n", port);
 
-ACE_Reactor reactor;
+//ACE_Reactor reactor;
 ACE_INET_Addr addr(port);
-//Echo_Aceptor acceptor(addr, &reactor);
+Echo_Aceptor acceptor(addr, ACE_Reactor::instance());
+
+//Echo_Aceptor acceptor;
+//if ( acceptor.open(addr,&reactor) == -1 ) return 1;
+
 //reactor.register_handler(&acceptor, ACE_Event_Handler::READ_MASK);
 
-Echo_Aceptor acceptor;
-if ( acceptor.open(addr,&reactor) == -1 ) return 1;
 
 
-
-
-reactor.run_reactor_event_loop();
+//reactor.run_reactor_event_loop();
+ACE_Reactor::instance()->run_reactor_event_loop();
 
 
 } 
