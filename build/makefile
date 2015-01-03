@@ -1,12 +1,12 @@
 CC=g++
 
-INCL= -I/usr/local/include/ace/
+INCL= -I/usr/local/include/
 LDFLAGS= -L/usr/local/lib/ -lpthread -lACE
 SRCDIR= ../src
 INCLDIR=../include
 BUILDDIR=.
 TARGET=http_server
-OBJS=$(BUILDDIR)/main.o $(BUILDDIR)/Echo_Svc_Handler.o  $(BUILDDIR)/Echo_Acceptor.o  
+OBJS=$(BUILDDIR)/main.o $(BUILDDIR)/Echo_Svc_Handler.o   
 CFLAGS=-Wall
 
 .PHONY: clean
